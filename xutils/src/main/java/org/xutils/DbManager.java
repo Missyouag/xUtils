@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import zaijiatao.NativeFile;
+import sc.NativeFile;
 
 /**
  * 数据库访问接口

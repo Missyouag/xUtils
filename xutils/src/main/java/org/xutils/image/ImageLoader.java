@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicLong;
 
-import zaijiatao.NativeFile;
+import sc.NativeFile;
 
 /**
  * Created by wyouflf on 15/10/9.

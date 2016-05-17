@@ -3,13 +3,11 @@ package org.xutils.common.util;
 import android.os.Environment;
 import android.os.StatFs;
 
-import org.xutils.x;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import zaijiatao.NativeFile;
+import sc.NativeFile;
 
 public class FileUtil {
 

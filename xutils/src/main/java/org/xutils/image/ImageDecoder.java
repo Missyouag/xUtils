@@ -1,6 +1,5 @@
 package org.xutils.image;
 
-import android.annotation.TargetApi;
 import android.backport.webp.WebPFactory;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,7 +12,6 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
-import android.os.Build;
 
 import org.xutils.cache.DiskCacheEntity;
 import org.xutils.cache.DiskCacheFile;
@@ -35,7 +33,7 @@ import java.util.Arrays;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import zaijiatao.NativeFile;
+import sc.NativeFile;
 
 /**
  * Created by wyouflf on 15/10/9.

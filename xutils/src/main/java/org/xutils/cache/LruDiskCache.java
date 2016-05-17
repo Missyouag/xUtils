@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-import zaijiatao.NativeFile;
+import sc.NativeFile;
 
 /**
  * Created by wyouflf on 15/7/23.
