@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <style name="AppThemeMain" parent="android:Theme.DeviceDefault.NoActionBar">
+                <item name="android:windowTranslucentStatus">true</item>
+                <item name="android:textColorPrimaryInverse">@color/red</item>
+                <item name="android:textColor">@color/blacka0</item>
+                <item name="android:textColorHint">@color/black40</item>
+                <item name="android:windowLightStatusBar">true</item>
+
+                <!-- Customize your theme here. -->
+        </style>
+</resources>

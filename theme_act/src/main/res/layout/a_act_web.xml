@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+    <!-- <SeekBar
+        android:id="@+id/web_view_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:max="100"
+        android:progress="20"
+        android:thumb="@color/green"
+        android:background="@color/white"
+        android:secondaryProgress="@color/main_color"
+
+        /> -->
+    <View
+        android:id="@+id/web_view_seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        />
+
+    <com.sc.simple.view.profess.simple.WebWithHolder
+        android:id="@+id/my_web"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="vertical"
+        />
+    <!--  <com.stcyclub.e_community.myView.RoundProgressBar
+         android:id="@+id/roundProgressBar"
+         android:layout_width="@dimen/btn_back_width7"
+         android:layout_height="@dimen/btn_back_width7"
+         android:layout_centerInParent="true"
+         android_xy:roundColor="@color/main_color50"
+         android_xy:roundProgressColor="@color/main_color"
+         android_xy:textColor="@color/red"
+         android_xy:textIsDisplayable="false"
+
+         android_xy:roundWidth="@dimen/margin_padding4"
+         android_xy:textSize="@dimen/textsize6"/>  -->
+
+</RelativeLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_2">-2dp</dimen>
+    <dimen name="margin_4">-4dp</dimen>
+    <dimen name="margin_6">-6dp</dimen>
+    <dimen name="margin_8">-8dp</dimen>
+    <dimen name="margin_padding1">2dp</dimen>
+    <dimen name="margin_padding2">3dp</dimen>
+    <dimen name="margin_padding3">6dp</dimen>
+    <dimen name="margin_padding4">8dp</dimen>
+    <dimen name="margin_padding5">10dp</dimen>
+    <dimen name="margin_padding6">12dp</dimen>
+    <dimen name="margin_padding7">14dp</dimen>
+    <dimen name="margin_padding8">16dp</dimen>
+    <dimen name="margin_padding9">20dp</dimen>
+    <dimen name="padding_top_system">0dp</dimen>
+    <dimen name="little_border">0.1dp</dimen>
+
+    <dimen name="button_width">40dp</dimen>
+    <dimen name="button_width1">16dp</dimen>
+    <dimen name="button_width2">24dp</dimen>
+    <dimen name="button_width3">30dp</dimen>
+    <dimen name="button_width4">36dp</dimen>
+    <dimen name="button_width5">48dp</dimen>
+    <dimen name="button_width6">64dp</dimen>
+    <dimen name="button_width7">86dp</dimen>
+    <dimen name="button_width8">120dp</dimen>
+    <dimen name="button_width9">150dp</dimen>
+    <dimen name="img_wid1">180dp</dimen>
+    <dimen name="img_wid2">200dp</dimen>
+
+
+    <dimen name="text_size0">10sp</dimen>
+    <dimen name="text_size1">12sp</dimen>
+    <dimen name="text_size2">15sp</dimen>
+    <dimen name="text_size3">18sp</dimen>
+    <dimen name="text_size4">20sp</dimen>
+    <dimen name="text_size5">24sp</dimen>
+    <dimen name="text_size6">28sp</dimen>
+    <dimen name="text_size7">30sp</dimen>
+    <dimen name="text_size8">35sp</dimen>
+    <dimen name="text_size9">40sp</dimen>
+
+
+    <dimen name="margin">30dp</dimen>
+
+    <!--   边框 宽度    -->
+    <dimen name="border">2dp</dimen>
+
+
+
+
+
+    <dimen name="drop_down_list_header_padding_top">12dp</dimen>
+    <dimen name="drop_down_list_header_padding_bottom">15dp</dimen>
+    <dimen name="drop_down_list_header_release_min_distance">20dp</dimen>
+    <dimen name="drop_down_list_header_progress_bar_height">36dp</dimen>
+    <dimen name="drop_down_list_footer_progress_bar_height">36dp</dimen>
+    <dimen name="drop_down_list_footer_button_margin_left">8dp</dimen>
+    <dimen name="drop_down_list_footer_button_height">48dp</dimen>
+
+    <!--  箭头view  -->
+    <dimen name="ldrawer_drawableSize">50dp</dimen>
+    <dimen name="ldrawer_barSize">18dp</dimen>
+    <dimen name="ldrawer_topBottomBarArrowSize">11dp</dimen>
+    <dimen name="ldrawer_thickness">2dp</dimen>
+    <dimen name="ldrawer_gapBetweenBars">3dp</dimen>
+    <dimen name="ldrawer_middleBarArrowSize">16dp</dimen>
+    <dimen name="maxhight">1000dp</dimen>
+    <dimen name="loading_view_progress_size">50dp</dimen>
+    <dimen name="loading_view_margin_layout">10dp</dimen>
+    <dimen name="loading_view_margin_right">5dp</dimen>
+
+</resources>

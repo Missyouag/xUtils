@@ -3,7 +3,6 @@ package org.xutils.sample;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.sc.xutils.R;
 
 import org.xutils.image.ImageOptions;
 import org.xutils.view.annotation.ContentView;

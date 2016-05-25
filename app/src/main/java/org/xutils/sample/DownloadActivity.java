@@ -12,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sc.xutils.R;
 
 import org.xutils.common.Callback;
 import org.xutils.ex.DbException;

@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.sc.xutils.R;
 
 import org.xutils.common.Callback;
 import org.xutils.ex.DbException;

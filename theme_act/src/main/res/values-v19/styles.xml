@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppStartTheme" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowBackground">@color/blue</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:textColorPrimaryInverse">@color/red</item>
+        <item name="android:textColor">@color/blacka0</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppThemeMain" parent="android:Theme.DeviceDefault.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:textColorPrimaryInverse">@color/red</item>
+        <item name="android:textColor">@color/blacka0</item>
+        <item name="android:textColorHint">@color/black40</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+</resources>

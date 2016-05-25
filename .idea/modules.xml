@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/theme_act/theme_act.iml" filepath="$PROJECT_DIR$/theme_act/theme_act.iml" />
       <module fileurl="file://$PROJECT_DIR$/xUtils.iml" filepath="$PROJECT_DIR$/xUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/xutils/xutils.iml" filepath="$PROJECT_DIR$/xutils/xutils.iml" />
     </modules>

@@ -3,7 +3,6 @@ package org.xutils.sample;
 import android.view.View;
 import android.widget.TextView;
 
-import com.sc.xutils.R;
 
 import org.xutils.DbManager;
 import org.xutils.common.util.KeyValue;

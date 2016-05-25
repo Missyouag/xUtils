@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 
-import com.sc.xutils.R;
 
 import org.xutils.common.Callback;
 import org.xutils.common.util.DensityUtil;

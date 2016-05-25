@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="float_transparent">#00000000</color>
+    <color name="sweet_dialog_bg_color">#FFFFFF</color>
+    <color name="button_text_color">#FFFFFF</color>
+    <color name="gray_btn_bg_color">#D0D0D0</color>
+    <color name="gray_btn_bg_pressed_color">#B6B6B6</color>
+    <color name="blue_btn_bg_color">#AEDEF4</color>
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
+    <color name="red_btn_bg_color">#DD6B55</color>
+    <color name="red_btn_bg_pressed_color">#CD5B55</color>
+    <color name="error_stroke_color">#F27474</color>
+    <color name="success_stroke_color">#A5DC86</color>
+    <color name="trans_success_stroke_color">#33A5DC86</color>
+    <color name="warning_stroke_color">#F8BB86</color>
+    <color name="text_color">#575757</color>
+    <color name="material_blue_grey_80">#ff37474f</color>
+    <color name="material_blue_grey_90">#ff263238</color>
+    <color name="material_blue_grey_95">#ff21272b</color>
+    <color name="material_deep_teal_20">#ff80cbc4</color>
+    <color name="material_deep_teal_50">#ff009688</color>
+
+    <color name="white">#ffff</color>
+    <color name="white4">#4fff</color>
+    <color name="white8">#8fff</color>
+    <color name="whitea">#afff</color>
+    <color name="black05">#05000000</color>
+    <color name="black0a">#0a000000</color>
+    <color name="black10">#10000000</color>
+    <color name="black20">#20000000</color>
+    <color name="black30">#30000000</color>
+    <color name="black40">#40000000</color>
+    <color name="black50">#50000000</color>
+    <color name="black60">#60000000</color>
+    <color name="black70">#70000000</color>
+    <color name="black80">#80000000</color>
+    <color name="black90">#90000000</color>
+    <color name="blacka0">#a0000000</color>
+    <color name="blackb0">#b0000000</color>
+    <color name="blackc0">#c0000000</color>
+    <color name="black">#000000</color>
+
+
+
+
+    <color name="indexorange">#cc0000</color>
+    <color name="indexgray">#393e41</color>
+
+    <color name="gray">#eeeeee</color>
+    <color name="deep_gray0">#aeada8</color>
+    <color name="deep_gray">#9A9A9A</color>
+    <color name="red">#EE0000</color>
+    <color name="red80">#80EE0000</color>
+    <color name="transparent">#0000</color>
+
+    <!--  2048游戏    -->
+    <color name="background">#eef8ef</color>
+    <color name="text_white">#fff6f2</color>
+    <color name="text_black">#996e65</color>
+    <color name="text_brown">#d8cdc4</color>
+    <color name="text_pink">#FF3F81</color>
+    <color name="text_pink_tran">#5ffF3F81</color>
+    <color name="text_violet">#F576D3</color>
+    <color name="text_pinkdark">#FF5A82</color>
+    <color name="text_orange">#FB4E02</color>
+    <color name="text_purple">#A45ECF</color>
+    <color name="text_cyan">#CFDE2F</color>
+    <color name="text_dackred">#D94343</color>
+
+
+    <!-- drop down main header font color -->
+    <color name="drop_down_list_header_font_color">#000000</color>
+    <!-- drop down main header second font color -->
+    <color name="drop_down_list_header_second_font_color">#000000</color>
+    <!-- drop down main footer font color -->
+    <color name="drop_down_list_footer_font_color">#000000</color>
+
+
+    <!--  箭头view  -->
+    <color name="ldrawer_color">#FFFFFF</color>
+
+
+    <color name="green">#ff34C998</color>
+    <color name="green10">#1034C998</color>
+    <color name="green40">#4034C998</color>
+    <color name="green80">#8034C998</color>
+    <color name="blue">#2B57FF</color>
+    <color name="blue10">#102B57FF</color>
+    <color name="blue40">#402B57FF</color>
+    <color name="blue80">#802B57FF</color>
+    <color name="yellow">#FFA32B</color>
+    <color name="yellow10">#10FFA32B</color>
+    <color name="yellow40">#40FFA32B</color>
+    <color name="yellow80">#80FFA32B</color>
+
+
+
+</resources>
