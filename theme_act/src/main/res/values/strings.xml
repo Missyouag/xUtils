@@ -4,5 +4,5 @@
     <string name="dialog_cancel">取消</string>
     <string name="dialog_default_title">消息呢？主人不要我了。。。</string>
     <string name="dialog_ok">确定</string>
-    <string name="app_name">开心窗口</string>
+    <string name="loading_err">加载失败</string>
 </resources>

@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+import com.sc.R;
 import com.sc.activity.utils.SkipUtil;
 import com.sc.data.DefaultData;
 import com.sc.utils.system.SystemBarTintManager;
@@ -39,12 +40,10 @@ public class BaseAct extends Activity {
      * 前置数据
      */
     public Intent mIntent;
-    @ViewInject(R.id.titleshow)
     protected View titleBar;
     /**
      * 隐藏将没有bar,空白高度
      */
-    @ViewInject(R.id.title_all)
     protected View titleALL;
     protected Handler handler;
     /**
@@ -68,11 +67,10 @@ public class BaseAct extends Activity {
      */
     protected int mType;
     protected String[] mKeys;
-    private ConnectivityManager connectivityManager;
-    private NetworkInfo info;
-    private RelativeLayout internet_hint;
-    private RelativeLayout titleShow;
-    @ViewInject(R.id.title)
+//    private ConnectivityManager connectivityManager;
+//    private NetworkInfo info;
+//    private RelativeLayout internet_hint;
+//    private View titleShow;
     private TextView top;
     @NonNull
     private ActivityHelp mHelper;
@@ -110,6 +108,11 @@ public class BaseAct extends Activity {
         preferences = getSharedPreferences(DefaultData.Preferences_name, MODE_PRIVATE);
         init();
         setWindowForSystemBar();
+
+        titleBar=  findViewById(R.id.title_show);
+        top= (TextView) findViewById(R.id.title);
+        titleALL=findViewById(R.id.title_all);
+
         XView.ViewFind(this);
         setTitleBackColor(0);
         initMethod();
@@ -180,7 +183,7 @@ public class BaseAct extends Activity {
      * 加载失败调用以关闭回退；
      */
     public void initFail() {
-        ShowToast(getString(R.string.loadingerr));
+        ShowToast(getString(R.string.loading_err));
         finishAct();
     }
 
@@ -248,7 +251,7 @@ public class BaseAct extends Activity {
      * 不能写入数据监听
      */
     protected void init() {
-        setContentView(R.layout.act_base);
+        setContentView(R.layout.a_act_base);
 
         mKey = mIntent.getStringExtra(SkipUtil.Skip_key);
         mType = mIntent.getIntExtra(SkipUtil.Skip_type, -1);

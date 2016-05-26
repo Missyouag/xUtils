@@ -1,4 +1,4 @@
-package com.pnikosis.SweetAlert;
+package com.sc.utils.SweetAlert;
 
 import android.content.Context;
 import android.content.res.Resources;

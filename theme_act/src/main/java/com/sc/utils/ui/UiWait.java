@@ -6,8 +6,8 @@ import android.os.CountDownTimer;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.pnikosis.SweetAlert.SweetAlertDialog;
-import com.pnikosis.SweetAlert.SweetAlertWarn;
+import com.sc.utils.SweetAlert.SweetAlertDialog;
+import com.sc.utils.SweetAlert.SweetAlertWarn;
 
 
 /**

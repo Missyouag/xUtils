@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 
+import com.sc.R;
 import com.sc.activity.BaseMana;
 
 

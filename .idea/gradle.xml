@@ -13,6 +13,14 @@
             <option value="$PROJECT_DIR$/xutils" />
           </set>
         </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/theme_act" />
+            <option value="$PROJECT_DIR$/xutils" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>

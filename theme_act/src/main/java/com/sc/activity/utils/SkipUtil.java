@@ -8,10 +8,12 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 
+import com.sc.R;
+import com.sc.activity.WebA;
+
 import java.io.File;
 import java.util.Arrays;
 
-import com.pnikosis.SweetAlert.SweetAlertToast;
 
 /**
  * 解析字符串<p/>
@@ -158,7 +160,7 @@ public class SkipUtil {
 //
 //      if(null!=mMainView)  HintShow.show(mMainView,str);
 //        else
-        SweetAlertToast.makeText(c, str).show();
+//        SweetAlertToast.makeText(c, str).show();
     }
     /**
      * 右结束activity

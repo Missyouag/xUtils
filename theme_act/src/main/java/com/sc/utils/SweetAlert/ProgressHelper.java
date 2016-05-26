@@ -1,8 +1,9 @@
-package com.pnikosis.SweetAlert;
+package com.sc.utils.SweetAlert;
 
 import android.content.Context;
 
-import com.pnikosis.materialishprogress.ProgressWheel;
+import com.sc.utils.ProgressWheel;
+import com.sc.R;
 
 
 public class ProgressHelper {

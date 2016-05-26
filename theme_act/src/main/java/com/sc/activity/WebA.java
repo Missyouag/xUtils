@@ -16,6 +16,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
+import com.sc.R;
+import com.sc.utils.MyJavaScript;
+
 import org.xutils.common.util.LogUtil;
 import org.xutils.view.annotation.ViewInject;
 
@@ -27,7 +30,7 @@ import org.xutils.view.annotation.ViewInject;
  */
 @SuppressLint("JavascriptInterface")
 public class WebA extends BaseAct {
-	@ViewInject(R.id.my_web)
+
 	private WebView webView;
 	private int progress=0;
 	private int progressSize=1;
@@ -49,6 +52,7 @@ public class WebA extends BaseAct {
 	protected void init() {
 		super.init();
 		alabSetContentView(R.layout.a_act_web);
+		webView= (WebView) findViewById(R.id.my_web);
 	}
 
 	@Override

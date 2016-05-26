@@ -35,6 +35,7 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.Timer;
 
+import com.sc.R;
 import com.sc.activity.utils.PageUtil;
 import com.sc.activity.utils.SkipUtil;
 import com.sc.data.DefaultData;
@@ -77,23 +78,15 @@ public abstract class BaseMana extends FragmentActivity {
      */
     public Handler handler;
     /**
-     * 搜索左侧栏
-     */
-    @ViewInject(R.id.select)
-    public TextView subSelect;
-    /**
      * 顶部栏高度
      */
-    @ViewInject(R.id.title_all)
+
     public View titleALL;
-    @ViewInject(R.id.titleshow)
     protected View titleBar;
     // private Spinner spinner;
-    @ViewInject(R.id.search_layout)
-    protected View titleBar2;
-    @ViewInject(R.id.main_bottom)
+
     protected View bottomBar;
-    @ViewInject(R.id.base_submenu)
+
     public TextView subMenu;
     /**
      * 类型
@@ -122,7 +115,7 @@ public abstract class BaseMana extends FragmentActivity {
     /**
      * 所有view
      */
-    @ViewInject(R.id.main)
+
     protected RelativeLayout mAllView;
     /**
      * 系统状态栏
@@ -136,7 +129,7 @@ public abstract class BaseMana extends FragmentActivity {
     /**
      * 标题
      */
-    @ViewInject(R.id.title)
+
     private TextView topTitleTextView;
 
 
@@ -165,7 +158,7 @@ public abstract class BaseMana extends FragmentActivity {
 
     //全屏
     protected void setFullScreen() {
-        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this, R.mipmap.welcome_bg_first_show));
+//        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(this, R.mipmap.welcome_bg_first_show));
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT)
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -206,8 +199,17 @@ public abstract class BaseMana extends FragmentActivity {
         mSystemBar.setStatusBarTintEnabled(true);
         mSystemBar.setNavigationBarTintEnabled(true);
         setWindowForSystemBar();
+        //初始化控件
+        titleBar = findViewById(R.id.title_show);
+        topTitleTextView = (TextView) findViewById(R.id.title);
+        mAllView = (RelativeLayout) findViewById(R.id.main);
+        subMenu = (TextView) findViewById(R.id.base_submenu);
+        titleALL = findViewById(R.id.title_all);
+
         //设置前置效果
         x.view().inject(this);
+
+
         initData();
         ChangeDefaultView();
 //        PushManager.startWork(this, PushConstants.LOGIN_TYPE_API_KEY, "PeCAlGXHthIBOjjD5HCl3BlE");
@@ -239,7 +241,7 @@ public abstract class BaseMana extends FragmentActivity {
      * 加载失败调用以关闭回退；
      */
     public void initFail() {
-        ShowToast(getString(R.string.err));
+        ShowToast("加载失败");
         finishAct();
     }
 
@@ -298,29 +300,29 @@ public abstract class BaseMana extends FragmentActivity {
      *              3 留下顶部背景
      */
     public void setTitleBarStyle(int Style) {
-        if (null != titleBar && null != titleBar2) {
+        if (null != titleBar) { //&& null != titleBar2
             switch (Style) {
                 case 0:
                     setTitleBackColor(0, true);
                     titleBar.setVisibility(View.GONE);
-                    titleBar2.setVisibility(View.GONE);
+//                    titleBar2.setVisibility(View.GONE);
                     break;
                 case 3:
                     setTitleBackColor(0, false);
                     titleBar.setVisibility(View.GONE);
-                    titleBar2.setVisibility(View.GONE);
+//                    titleBar2.setVisibility(View.GONE);
                     break;
                 case 4:
                 case 1:
-                    subSelect.setVisibility(Style == 4 ? View.VISIBLE : View.GONE);
+//                    subSelect.setVisibility(Style == 4 ? View.VISIBLE : View.GONE);
                     setTitleBackColor(0);
                     titleBar.setVisibility(View.GONE);
-                    titleBar2.setVisibility(View.VISIBLE);
+//                    titleBar2.setVisibility(View.VISIBLE);
                     break;
                 case 2:
                     setTitleBackColor(0);
                     titleBar.setVisibility(View.VISIBLE);
-                    titleBar2.setVisibility(View.GONE);
+//                    titleBar2.setVisibility(View.GONE);
                     break;
             }
         }
@@ -378,7 +380,7 @@ public abstract class BaseMana extends FragmentActivity {
      * @return
      */
     protected int getContentViewId() {
-        return R.layout.act_basefrag;
+        return R.layout.a_actfrag_base;
     }
 
     /**
@@ -402,11 +404,11 @@ public abstract class BaseMana extends FragmentActivity {
 
     @Override
     protected void onResume() {
-        fail=true;
+        fail = true;
         super.onResume();
         initView();
 //        fail=false;
-        fail=false;
+        fail = false;
     }
 
     /**
@@ -482,6 +484,7 @@ public abstract class BaseMana extends FragmentActivity {
         }
         return false;
     }
+
     /**
      * 取消大字体的效果
      *
@@ -582,7 +585,7 @@ public abstract class BaseMana extends FragmentActivity {
         FragmentTransaction ft = null;
         switch (style) {
             case 1:
-                if (!fail && !isStart && mPage != mPageH && (mPageH < 100|| ((null != getFragmentOLd(mPage)) && ((BaseF)
+                if (!fail && !isStart && mPage != mPageH && (mPageH < 100 || ((null != getFragmentOLd(mPage)) && ((BaseF)
                         getFragmentOLd(mPage)).isStart()))) {
                     if (mPage > mPageH & mPage < 100) {
                         ft = fm.beginTransaction().setCustomAnimations(
@@ -618,7 +621,7 @@ public abstract class BaseMana extends FragmentActivity {
             }
 
             isStart = false;
-            if (history && !(to instanceof IndexF)) {
+            if (history) {//&& !(to instanceof IndexF)
                 HistoryPage.add(mPageHistory, new Integer(mPageH));
                 ft.addToBackStack("" + mPageHistory++);
             }
@@ -704,16 +707,16 @@ public abstract class BaseMana extends FragmentActivity {
     }
 
     public void HiddenTop() {
-        if (titleBar.getVisibility() != View.GONE || titleBar2.getVisibility() != View.GONE) {
+        if (titleBar.getVisibility() != View.GONE) {//|| titleBar2.getVisibility() != View.GONE
             setAnimGoneUp(titleBar);
-            setAnimGoneUp(titleBar2);
+//            setAnimGoneUp(titleBar2);
         }
     }
 
     public void ShowTop() {
-        if (titleBar.getVisibility() != View.VISIBLE || titleBar2.getVisibility() != View.VISIBLE) {
+        if (titleBar.getVisibility() != View.VISIBLE) {//|| titleBar2.getVisibility() != View.VISIBLE
             setAnimShowUp(titleBar);
-            setAnimShowUp(titleBar2);
+//            setAnimShowUp(titleBar2);
         }
 
     }
@@ -794,7 +797,7 @@ public abstract class BaseMana extends FragmentActivity {
      * 快捷跳转到固定页面
      * 使用复杂
      * gopage代替
-     * {@link com.sc.simple.activity.utils.PageUtil}
+     * {@link com.sc.activity.utils.PageUtil}
      *
      * @param page 0为跳转到首页
      */

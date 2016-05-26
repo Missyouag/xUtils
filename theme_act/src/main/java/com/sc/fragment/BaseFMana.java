@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.sc.R;
+
 import java.util.ArrayList;
 
 /**
@@ -71,7 +73,7 @@ public abstract class BaseFMana extends BaseF {
 
     @Override
     public int getViewId() {
-        return R.layout.love_frag_main;
+        return R.layout.a_actfrag_frag_main;
     }
 
     @Override
@@ -235,7 +237,7 @@ public abstract class BaseFMana extends BaseF {
             } else {
                 ft.add(contentId, to);
             }
-            if (history && !(to instanceof IndexF)) {
+            if (history ) {//&& !(to instanceof IndexF)
                 HistoryPage.add(mPageHistory, new Integer(mPageH));
                 ft.addToBackStack("" + ++mPageHistory);
             }

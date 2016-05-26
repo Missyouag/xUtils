@@ -2,6 +2,7 @@ package com.sc.activity;
 
 import android.content.Context;
 
+import com.sc.R;
 import com.sc.activity.utils.SkipUtil;
 
 
@@ -25,7 +26,7 @@ public class ActivityHelp {
      * @return
      */
     public int defaultSystemBarColor() {
-            return getColor(R.color.street_top_color);
+            return getColor(R.color.text_orange);
 
     }
 

@@ -1,4 +1,4 @@
-package com.pnikosis.materialishprogress;
+package com.sc.utils;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -13,6 +13,8 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
+
+import com.sc.R;
 
 
 /**
