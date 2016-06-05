@@ -71,4 +71,8 @@
     <dimen name="loading_view_margin_layout">10dp</dimen>
     <dimen name="loading_view_margin_right">5dp</dimen>
 
+
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
 </resources>

@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base application theme. -->
+    <style name="AppStartTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@color/red</item>
+        <item name="android:textColorPrimaryInverse">@color/red</item>
+        <item name="android:textColor">@color/blacka0</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppThemeMain" parent="android:Theme.Black.NoTitleBar">
+        <item name="android:textColorPrimaryInverse">@color/red</item>
+        <item name="android:textColor">@color/blacka0</item>
+        <item name="android:textColorHint">@color/black40</item>
+
+        <!-- Customize your theme here. -->
+    </style>
     <style name="alert_dialog" parent="android:Theme.Dialog">
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowIsTranslucent">false</item>

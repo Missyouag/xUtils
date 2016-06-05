@@ -35,19 +35,22 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout.LayoutParams;
 
+import org.xutils.common.util.LogUtil;
+
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * Class to manage status and navigation bar tint effects when using KitKat 
+ * Class to manage status and navigation bar tint effects when using KitKat
  * translucent system UI modes.
- *
  */
 public class SystemBarTintManager {
 
     static {
         // Android allows a system property to override the presence of the navigation bar.
         // Used by the emulator.
-        // See https://github.com/android/platform_frameworks_base/blob/master/policy/src/com/android/internal/policy/impl/PhoneWindowManager.java#L1076
+        // See https://github.com/android/platform_frameworks_base/blob/master/policy/src/com/android/internal/policy/impl/PhoneWindowManager
+        // .java#L1076
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             try {
                 Class c = Class.forName("android.os.SystemProperties");
@@ -69,6 +72,7 @@ public class SystemBarTintManager {
     private static String sNavBarOverride;
 
     private final SystemBarConfig mConfig;
+    private final Window win;
     private boolean mStatusBarAvailable;
     private boolean mNavBarAvailable;
     private boolean mStatusBarTintEnabled;
@@ -86,7 +90,7 @@ public class SystemBarTintManager {
     @SuppressWarnings("ResourceType")
     public SystemBarTintManager(Activity activity) {
 
-        Window win = activity.getWindow();
+        win = activity.getWindow();
         ViewGroup decorViewGroup = (ViewGroup) win.getDecorView();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -129,8 +133,73 @@ public class SystemBarTintManager {
     }
 
     /**
-     * Enable tinting of the system status bar.
+     * 沉浸式状态栏字体颜色的修改(只针对小米和魅族)
+     * @param dark 颜色白黑；
+     */
+    public void setStatusBarTheme( boolean dark) {
+        if (win != null) {
+            setStatusBarDarkMode(win,dark);
+            setStatusBarDarkIcon(win,dark);
+        }
+    }
+
+    /**
+     * 小米
+     * 沉浸式状态栏字体颜色的修改（请使用{@link #setStatusBarTheme}）
      *
+     * @param dark
+     * @param window
+     */
+    public static void setStatusBarDarkMode(Window window, boolean dark) {
+        Class<? extends Window> clazz = window.getClass();
+        try {
+            int darkModeFlag = 0;
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            extraFlagField.invoke(window, dark ? darkModeFlag : 0, darkModeFlag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 魅族
+     * 沉浸式状态栏字体颜色的修改（请使用{@link #setStatusBarTheme}）
+     *
+     * @param window
+     * @param dark
+     * @return
+     */
+    public static boolean setStatusBarDarkIcon(Window window, boolean dark) {
+        boolean result = false;
+
+            try {
+                WindowManager.LayoutParams lp = window.getAttributes();
+                Field darkFlag = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+                Field meizuFlags = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+                darkFlag.setAccessible(true);
+                meizuFlags.setAccessible(true);
+                int bit = darkFlag.getInt(null);
+                int value = meizuFlags.getInt(lp);
+                if (dark) {
+                    value |= bit;
+                } else {
+                    value &= ~bit;
+                }
+                meizuFlags.setInt(lp, value);
+                window.setAttributes(lp);
+                result = true;
+            } catch (Exception e) {
+                LogUtil.e("MeiZu " + "setStatusBarDarkIcon: failed");
+            }
+        return result;
+    }
+
+    /**
+     * Enable tinting of the system status bar.
+     * <p>
      * If the platform is running Jelly Bean or earlier, or translucent system
      * UI modes have not been enabled in either the theme or via window flags,
      * then this method does nothing.
@@ -146,7 +215,7 @@ public class SystemBarTintManager {
 
     /**
      * Enable tinting of the system navigation bar.
-     *
+     * <p>
      * If the platform does not have soft navigation keys, is running Jelly Bean
      * or earlier, or translucent system UI modes have not been enabled in either
      * the theme or via window flags, then this method does nothing.
@@ -351,7 +420,6 @@ public class SystemBarTintManager {
     /**
      * Class which describes system bar sizing and other characteristics for the current
      * device configuration.
-     *
      */
     public static class SystemBarConfig {
 
