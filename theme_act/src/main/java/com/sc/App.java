@@ -6,6 +6,8 @@ import com.sc.utils.Utils;
 
 import org.xutils.x;
 
+import sc.NativeFile;
+
 
 /**
  * Created by Missyouag on 2015/11/13.
@@ -16,6 +18,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         x.Ext.init(this);
+//        NativeFile.initFolder();  //初始化文件夹位置
         x.Ext.setDebug(BuildConfig.DEBUG); // 开启debug会影响性能
         //** 检测屏幕宽高
         Utils.setScreenWH(this);

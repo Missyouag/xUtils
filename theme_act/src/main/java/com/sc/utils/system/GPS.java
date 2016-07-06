@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.sc.activity.utils.SkipUtil;
+import com.sc.activity.utils.XSkipUtil;
 
 public class GPS {
     public static double longitude = 0;
@@ -97,7 +97,7 @@ public class GPS {
                 //                                          int[] grantResults)
                 // to handle the case where the user grants the permission. See the documentation
                 // for ActivityCompat#requestPermissions for more details.
-                SkipUtil.ShowToast("请设置位置权限或手动设置位置，以获取实地信息！", a);
+                XSkipUtil.ShowToast("请设置位置权限或手动设置位置，以获取实地信息！", a);
                 return;
             }
 //            Location location = lm.getLastKnownLocation(provider);

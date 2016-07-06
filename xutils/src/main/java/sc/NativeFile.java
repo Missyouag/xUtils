@@ -1,6 +1,7 @@
 package sc;
 
 import android.os.Environment;
+import android.text.TextUtils;
 
 import org.xutils.common.util.FileUtil;
 import org.xutils.x;
@@ -9,7 +10,7 @@ import java.io.File;
 
 /**
  * 存放本地文件的位置记录
- *
+ * <p>
  * 默认位置
  * Created by Missyouag on 2015/9/6.
  */
@@ -18,11 +19,43 @@ public class NativeFile {
     /**
      * 公司文件夹名
      */
-    private static final String companyName="SC";
+    private static String companyName = "SC";
+    /**
+     * 公司文件夹名
+     */
+    private static String companyNameChinese = "";
     /**
      * 工程名
      */
-    private static final String projectName="xUtils";
+    private static String projectName = "xUtils";
+
+    public static String getCompanyName() {
+        return companyName;
+    }
+    public static String getCompanyNameChinese() {
+        return companyNameChinese;
+    }
+
+    public static void setCompanyNameChinese(String companyNameChinese) {
+        NativeFile.companyNameChinese = companyNameChinese;
+    }
+    public static String getProjectName() {
+        return projectName;
+    }
+
+    /**
+     * 初始化文件夹
+     * @param companyName
+     * @param projectName
+     */
+    public static void initFolder(String companyName, String projectName) {
+        if (!TextUtils.isEmpty(companyName)) {
+            NativeFile.companyName = companyName;
+        }
+        if (!TextUtils.isEmpty(projectName)) {
+            NativeFile.projectName = projectName;
+        }
+    }
 
     public static String getSystemDirectory(boolean b) {
         return b ? Environment
@@ -32,7 +65,6 @@ public class NativeFile {
     public static String getSystemDirectory() {
         return getSystemDirectory(FileUtil.existsSdcard());
     }
-
 
 
     public static String getDownloadDir() {
@@ -80,4 +112,6 @@ public class NativeFile {
     public static File getFile(String fileName) {
         return new File(new File(NativeFile.getDownloadDir()), fileName);
     }
+
+
 }

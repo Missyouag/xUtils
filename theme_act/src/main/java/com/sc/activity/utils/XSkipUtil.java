@@ -10,6 +10,7 @@ import android.text.TextUtils;
 
 import com.sc.R;
 import com.sc.activity.WebA;
+import com.sc.utils.SweetAlert.SweetAlertToast;
 
 import java.io.File;
 import java.util.Arrays;
@@ -20,7 +21,7 @@ import java.util.Arrays;
  * 跳转界面帮助
  * Created by sc on 2015/12/1.
  */
-public class SkipUtil {
+public class XSkipUtil {
     /**
      * 传递顶部栏所用的标题参数 "title"
      */
@@ -160,7 +161,7 @@ public class SkipUtil {
 //
 //      if(null!=mMainView)  HintShow.show(mMainView,str);
 //        else
-//        SweetAlertToast.makeText(c, str).show();
+        SweetAlertToast.makeText(c, str).show();
     }
     /**
      * 右结束activity

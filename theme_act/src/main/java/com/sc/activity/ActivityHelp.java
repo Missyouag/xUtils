@@ -3,7 +3,9 @@ package com.sc.activity;
 import android.content.Context;
 
 import com.sc.R;
-import com.sc.activity.utils.SkipUtil;
+import com.sc.activity.utils.XSkipUtil;
+
+import sc.NativeFile;
 
 
 /**
@@ -37,6 +39,14 @@ public class ActivityHelp {
     public void ShowToast(String str) {
 //        if (null != v) HintShow.show(v, str);
 //        else
-        SkipUtil.ShowToast( str,a);
+        XSkipUtil.ShowToast( str,a);
+    }
+    /**
+     * 设置默认标题
+     *
+     * @return
+     */
+    public String getTopTitle() {
+        return NativeFile.getCompanyNameChinese();
     }
 }

@@ -17,6 +17,8 @@ import android.view.ViewTreeObserver;
 import com.sc.R;
 import com.sc.activity.BaseMana;
 
+import sc.xutils_utils.XView;
+
 
 /**
  * 基础Fragment
@@ -130,6 +132,7 @@ public class BaseF extends Fragment implements ReFlashInterface {
                 BaseMessage(msg);
             }
         };
+        XView.ViewFind(this, mMainView);
         if (getHasSecondInit())
             mMainView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 public int time;

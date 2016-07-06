@@ -1,6 +1,8 @@
 package com.sc.data;
 
 
+import sc.NativeFile;
+
 /**
  * 固定数据位置
  */
@@ -9,12 +11,8 @@ public class DefaultData {
     /**
      * Preferences名字
      */
-    public static final String Preferences_name = "ZaiJiaTao";
+    public static final String Preferences_name = NativeFile.getCompanyName();
     public static final String Parse_url = "url";
-    /**
-     * 历史地址记录
-     */
-    public static final String LocationHis="location_his";
 
     /*
     *  登录账号信息
@@ -24,17 +22,9 @@ public class DefaultData {
     *  登录手机信息
      */
     public static final String UserPhone = "UserPhone";
-    public static final String Userpsw = "Userpsw";
-    public static final String SeletInt = "seletInt";
+    public static final String UserPsw = "UserPsw";
+    public static final String SelectInt = "selectInt";
 
-    /**
-     * 默认收货地址
-     */
-    public static final String DefaultAddress = "defaultAddress";
-    /**
-     * 默认收货地址
-     */
-    public static final String DefaultAddressCBD = "CBDdefaultAddress";
 
     /**
      * 进入activity 位置

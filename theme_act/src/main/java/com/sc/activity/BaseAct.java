@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,17 +15,15 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 import com.sc.R;
-import com.sc.activity.utils.SkipUtil;
+import com.sc.activity.utils.XSkipUtil;
 import com.sc.data.DefaultData;
 import com.sc.utils.system.SystemBarTintManager;
-import com.sc.xutils_utils.XView;
 
-import org.xutils.view.annotation.ViewInject;
+import sc.xutils_utils.XView;
 
 
 /**
@@ -74,6 +70,7 @@ public class BaseAct extends Activity {
     private TextView top;
     @NonNull
     private ActivityHelp mHelper;
+    protected TextView subMenu;
 
     //全屏
     protected void setFullScreen() {
@@ -112,6 +109,7 @@ public class BaseAct extends Activity {
         titleBar=  findViewById(R.id.title_show);
         top= (TextView) findViewById(R.id.title);
         titleALL=findViewById(R.id.title_all);
+        subMenu = (TextView) findViewById(R.id.base_submenu);
 
         XView.ViewFind(this);
         setTitleBackColor(0);
@@ -191,7 +189,7 @@ public class BaseAct extends Activity {
      * 获取标题
      */
     private void getData() {
-        String str = mIntent.getStringExtra(SkipUtil.Skip_title);
+        String str = mIntent.getStringExtra(XSkipUtil.Skip_title);
         if (str == null || str.equals("")) {
             str = getTopTitle();
         }
@@ -209,7 +207,7 @@ public class BaseAct extends Activity {
      * @return
      */
     protected String getTopTitle() {
-        return "在家淘";
+        return mHelper.getTopTitle();
     }
 
     /**
@@ -253,9 +251,9 @@ public class BaseAct extends Activity {
     protected void init() {
         setContentView(R.layout.a_act_base);
 
-        mKey = mIntent.getStringExtra(SkipUtil.Skip_key);
-        mType = mIntent.getIntExtra(SkipUtil.Skip_type, -1);
-        mKeys = mIntent.getStringArrayExtra(SkipUtil.Skip_keys);
+        mKey = mIntent.getStringExtra(XSkipUtil.Skip_key);
+        mType = mIntent.getIntExtra(XSkipUtil.Skip_type, -1);
+        mKeys = mIntent.getStringArrayExtra(XSkipUtil.Skip_keys);
 
 //        IntentFilter mFilter = new IntentFilter();
 //        // 网络连接监听广播

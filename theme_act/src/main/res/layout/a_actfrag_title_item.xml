@@ -13,7 +13,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:onClick="btnClick"
-        android:padding="@dimen/margin_padding6"
+        android:padding="@dimen/margin_padding3"
         android:src="@mipmap/ic_arrow_left_w"/>
 
     <TextView
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_size5"
+        android:textSize="@dimen/text_size3"
         />
 
     <TextView

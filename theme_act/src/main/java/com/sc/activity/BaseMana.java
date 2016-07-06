@@ -17,7 +17,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,15 +28,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.Timer;
 
 import com.sc.R;
-import com.sc.activity.utils.PageUtil;
-import com.sc.activity.utils.SkipUtil;
+import com.sc.activity.utils.XPageUtil;
+import com.sc.activity.utils.XSkipUtil;
 import com.sc.data.DefaultData;
 import com.sc.fragment.BaseF;
 import com.sc.utils.system.SystemBarTintManager;
@@ -78,8 +76,16 @@ public abstract class BaseMana extends FragmentActivity {
      */
     public Handler handler;
     /**
-     * 顶部栏高度
+     * 标题
      */
+
+    private TextView topTitleTextView;
+    /**
+     * 所有view
+     */
+
+    protected RelativeLayout mAllView;
+
 
     public View titleALL;
     protected View titleBar;
@@ -113,11 +119,6 @@ public abstract class BaseMana extends FragmentActivity {
 
 
     /**
-     * 所有view
-     */
-
-    protected RelativeLayout mAllView;
-    /**
      * 系统状态栏
      */
     protected SystemBarTintManager mSystemBar;
@@ -126,11 +127,6 @@ public abstract class BaseMana extends FragmentActivity {
      * 当按手机上的回退按钮市退出系统
      */
     Timer timer = new Timer();
-    /**
-     * 标题
-     */
-
-    private TextView topTitleTextView;
 
 
     //    private void initSystemBar() {
@@ -199,12 +195,15 @@ public abstract class BaseMana extends FragmentActivity {
         mSystemBar.setStatusBarTintEnabled(true);
         mSystemBar.setNavigationBarTintEnabled(true);
         setWindowForSystemBar();
+
         //初始化控件
         titleBar = findViewById(R.id.title_show);
         topTitleTextView = (TextView) findViewById(R.id.title);
         mAllView = (RelativeLayout) findViewById(R.id.main);
         subMenu = (TextView) findViewById(R.id.base_submenu);
         titleALL = findViewById(R.id.title_all);
+        bottomBar = findViewById(R.id.main_bottom);
+
 
         //设置前置效果
         x.view().inject(this);
@@ -280,7 +279,7 @@ public abstract class BaseMana extends FragmentActivity {
      */
     @NonNull
     public String getTopTitle() {
-        return "在家淘";
+        return mHelper.getTopTitle();
     }
 
     /**
@@ -443,16 +442,26 @@ public abstract class BaseMana extends FragmentActivity {
     public abstract Fragment getFragment(int page);
 
     /**
-     * 请使用{@link #getFragmentOLd(Fragment, int)}
+     * 请重写{@link #getFragmentOld(Fragment, int)}
      *
      * @param page
      * @return
      */
-    protected Fragment getFragmentOLd(int page) {
+    protected Fragment getFragmentOld(int page) {
         if (fm != null && fm.getFragments() != null) for (Fragment fra : fm.getFragments()) {
-            if (getFragmentOLd(fra, page)) return fra;
+            if (getFragmentOld(fra, page)) return fra;
         }
         return null;
+    }
+
+    /**
+     * 请重写{@link #getFragmentOld(Fragment, int)}
+     *
+     * @param page
+     * @return
+     */
+    protected void removeFragmentOld(int page) {
+        fm.getFragments().remove(getFragmentOld(page));
     }
 
     ;
@@ -464,7 +473,7 @@ public abstract class BaseMana extends FragmentActivity {
      * @param page
      * @return
      */
-    protected abstract boolean getFragmentOLd(Fragment fra, int page);
+    protected abstract boolean getFragmentOld(Fragment fra, int page);
 
     /**
      * 返回fragment
@@ -533,12 +542,12 @@ public abstract class BaseMana extends FragmentActivity {
 
     private void initIntent() {
         mIntent = getIntent();
-        type = mIntent.getIntExtra(SkipUtil.Skip_type, -1);
-        String keyCache = mIntent.getStringExtra(SkipUtil.Skip_key);
+        type = mIntent.getIntExtra(XSkipUtil.Skip_type, -1);
+        String keyCache = mIntent.getStringExtra(XSkipUtil.Skip_key);
         if (!TextUtils.isEmpty(keyCache)) key = keyCache;
-        String[] subtitleCache = mIntent.getStringArrayExtra(SkipUtil.Skip_keys);
+        String[] subtitleCache = mIntent.getStringArrayExtra(XSkipUtil.Skip_keys);
         if (null != subtitleCache) subtitle = subtitleCache;
-        String str = mIntent.getStringExtra(SkipUtil.Skip_title);
+        String str = mIntent.getStringExtra(XSkipUtil.Skip_title);
         if (str == null || str.equals("")) {
             str = getTopTitle();
         }
@@ -558,9 +567,22 @@ public abstract class BaseMana extends FragmentActivity {
         }
     }
 
+    /**
+     * 重新启动页面
+     * @param page 跳转的页面
+     */
+    protected void reStartPage(int page, int Type, boolean history) {
+//        Pages.add(mPageHistory, mPage);
+//        setPage(page);
+//        Fragment fra = getFragmentOld(page);
+        removeFragmentOld(page);
+        goPage(page, Type, history);
+    }
+
+
     public Fragment getFragmentAndOld(int page) {
         initFragmentManager();
-        Fragment fra = getFragmentOLd(page);
+        Fragment fra = getFragmentOld(page);
         if (fra == null) {
             fra = getFragment(page);
         }
@@ -585,9 +607,9 @@ public abstract class BaseMana extends FragmentActivity {
         FragmentTransaction ft = null;
         switch (style) {
             case 1:
-                if (!fail && !isStart && mPage != mPageH && (mPageH < 100 || ((null != getFragmentOLd(mPage)) && ((BaseF)
-                        getFragmentOLd(mPage)).isStart()))) {
-                    if (mPage > mPageH & mPage < 100) {
+                if (!fail && !isStart && mPage != mPageH && (mPageH % XPageUtil.indexPageNum < 100 || ((null != getFragmentOld(mPage)) && ((BaseF)
+                        getFragmentOld(mPage)).isStart()))) {
+                    if (mPage > mPageH & mPage % XPageUtil.indexPageNum < 100) {
                         ft = fm.beginTransaction().setCustomAnimations(
                                 R.anim.in_from_right, R.anim.out_to_left);
                     } else {
@@ -790,14 +812,14 @@ public abstract class BaseMana extends FragmentActivity {
      * @param url
      */
     public final void ParseUrl(String url) {
-        SkipUtil.parseShopAllUrl(url, this);
+        XSkipUtil.parseShopAllUrl(url, this);
     }
 
     /**
      * 快捷跳转到固定页面
      * 使用复杂
      * gopage代替
-     * {@link com.sc.activity.utils.PageUtil}
+     * {@link XPageUtil}
      *
      * @param page 0为跳转到首页
      */
